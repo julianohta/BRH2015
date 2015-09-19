@@ -10,6 +10,7 @@ public class MyPlayerController : MonoBehaviour {
 	public float jumpSpeed;
 	public bool lockCursor;
 	public LayerMask mask;
+	public ParticleSystem psystem;
 
 	Vector3 vel;
 	float verticalRot = 0;
@@ -25,9 +26,24 @@ public class MyPlayerController : MonoBehaviour {
 		}
 	}
 
+	void FireParticles () {
+		StartCoroutine ("particleCoroutine");
+	}
+
+	IEnumerator particleCoroutine () {
+		psystem.Play ();
+
+		yield return new WaitForSeconds (.1f);
+
+		psystem.Stop ();
+		//psystem.Clear ();
+	}
+
 	//Changes Gravity
 	void UpdateGrav () {
 		if (Input.GetAxis ("Fire1") == 1) {
+
+			FireParticles ();
 
 			Vector3 orientation = Camera.main.transform.rotation.ToEulerAngles();
 
