@@ -95,27 +95,22 @@ public class MyPlayerController : MonoBehaviour {
 		RaycastHit hit;
 		bool b = Physics.Raycast(transform.position, Vector3.up * -1, out hit, 2f, mask);
 
-		if (b) {
-			if (hit.distance < 1.1f) {
-				Debug.Log ("grounded");
-			}
-			else {
-				Debug.Log ("airborn");
-			}
-		}
-
 		return !b || (hit.distance > 1.1f);
 	}
 
 	void UpdatePos () {
 
-		vel.y+= -10f * Time.deltaTime;
 		vel.z= Input.GetAxis ("Vertical") * movementSpeed;
 		vel.x= Input.GetAxis ("Horizontal") * movementSpeed;
 
-		if (!CheckAirborn () && Input.GetButtonDown ("Jump")) {
-			vel.y= 0;
-			vel.y = jumpSpeed;
+		if (CheckAirborn ()) {
+			vel.y+= -10f * Time.deltaTime;
+		}
+		else {
+			if (Input.GetButtonDown ("Jump")) {
+				vel.y= 0;
+				vel.y = jumpSpeed;
+			}
 		}
 
 		vel = transform.rotation * vel;

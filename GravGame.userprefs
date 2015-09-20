@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MyPlayerController.cs">
     <Files>
-      <File FileName="Assets/Scripts/MyPlayerController.cs" Line="60" Column="11" />
-      <File FileName="../../UnityFpsTest/Assets/Scripts/FirstPersonController.cs" Line="107" Column="3" />
+      <File FileName="Assets/Scripts/MyPlayerController.cs" Line="107" Column="34" />
+      <File FileName="Assets/Scripts/WinCondition.cs" Line="3" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
