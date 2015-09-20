@@ -84,10 +84,10 @@ public class MyPlayerController : MonoBehaviour {
 	void UpdateRot () {
 		float horizRot = Input.GetAxis ("Mouse X") * mouseSens;
 		transform.Rotate(0, horizRot, 0);
-		
+
 		verticalRot -= Input.GetAxis ("Mouse Y") * mouseSens;
-		
-		verticalRot = Mathf.Clamp (verticalRot, -maxVerticalRotation, maxVerticalRotation);
+
+	    verticalRot = Mathf.Clamp (verticalRot, -maxVerticalRotation, maxVerticalRotation);
 		Camera.main.transform.localRotation = Quaternion.Euler(verticalRot, 0, 0);
 	}
 
@@ -121,11 +121,9 @@ public class MyPlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		UpdateRot ();
+		//UpdateRot ();
 		UpdatePos ();
-
 		UpdateGrav ();
-
 
 	}
 }
